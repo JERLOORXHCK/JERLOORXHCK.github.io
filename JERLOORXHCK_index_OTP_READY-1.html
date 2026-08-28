@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JERLOORXHCK | Digital Business</title>
+<link rel="icon" href="logo.png">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+:root{--bg:#030503;--card:#081008;--line:#21481b;--g:#8cff00;--text:#f3f8f0;--muted:#9baa97;--red:#ff7777}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#030503;color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(circle at 15% 5%,#173114,transparent 30%),radial-gradient(circle at 90% 50%,#10250f,transparent 30%),linear-gradient(#8cff0010 1px,transparent 1px),linear-gradient(90deg,#8cff0010 1px,transparent 1px);background-size:auto,auto,32px 32px,32px 32px}
+body:after{content:"";position:fixed;inset:-100%;z-index:-1;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0 5px,#8cff0008 6px 7px);animation:scan 12s linear infinite}@keyframes scan{to{transform:translateY(80px)}}
+a{color:inherit;text-decoration:none}.wrap{width:min(1120px,92%);margin:auto}.nav{position:sticky;top:0;z-index:20;background:#030503e8;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.navin{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:15px}.brand{display:flex;align-items:center;gap:10px;font-weight:950;letter-spacing:1px}.brand img{width:44px;height:44px;border-radius:50%;border:1px solid #4d9827}.links{display:flex;gap:20px;font-size:14px;color:#d4ddd1}.links a:hover{color:var(--g)}
+.btn{border:1px solid #3d6d31;background:#0c170b;color:#eaffdf;border-radius:12px;padding:12px 16px;cursor:pointer;font-weight:850}.btn.primary{background:var(--g);color:#071005;border-color:var(--g)}.btn:disabled{opacity:.5}
+.hero{padding:65px 0 48px;text-align:center}.hero img{width:min(330px,72vw);aspect-ratio:1;object-fit:cover;border-radius:50%;border:1px solid #4d9827;box-shadow:0 0 60px #8cff0026}.badge{display:inline-block;margin:22px 0 12px;padding:8px 12px;border:1px solid #315625;border-radius:99px;color:var(--g);font-size:11px;font-weight:900;letter-spacing:1.5px}h1{font-size:clamp(40px,9vw,78px);line-height:.94;letter-spacing:-3px;margin:4px 0 15px}.hero p{max-width:700px;margin:0 auto 24px;color:var(--muted);line-height:1.75;font-size:17px}.actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+section{padding:52px 0}.title{font-size:32px;margin:0 0 9px}.sub{color:var(--muted);line-height:1.6;margin:0 0 25px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card,.panel{background:#081008e8;border:1px solid var(--line);border-radius:18px}.card{padding:19px;min-height:205px}.icon{font-size:29px}.num{display:block;color:var(--g);font-size:12px;font-weight:900;margin-top:6px}.card h3{margin:10px 0 8px}.card p{color:var(--muted);font-size:14px;line-height:1.6;margin:0 0 15px}
+.panel{padding:23px}.auth{display:grid;grid-template-columns:1fr .9fr;gap:18px}.field{margin:11px 0}.field label{display:block;font-size:13px;color:#bdcbb9;margin-bottom:7px}.field input{width:100%;padding:14px;background:#030703;color:#fff;border:1px solid #294d24;border-radius:11px;outline:0}.field input:focus{border-color:var(--g);box-shadow:0 0 0 3px #8cff0012}.mode{display:flex;gap:8px;margin-bottom:16px}.mode .btn{flex:1}.mode .active{background:var(--g);color:#071005;border-color:var(--g)}
+.msg{display:none;margin-top:13px;padding:12px;border-radius:11px;background:#101b10;border:1px solid #294f24;color:#dcf5d4;font-size:14px;line-height:1.5}.msg.show{display:block}.msg.error{background:#1d0909;border-color:#682929;color:#ffc4c4}
+.otpwrap{display:none;margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}.otp{display:grid;grid-template-columns:repeat(6,1fr);gap:7px}.otp input{width:100%;min-width:0;text-align:center;padding:13px 2px;font-size:22px;font-weight:900;background:#030603;color:#fff;border:1px solid #315c2b;border-radius:12px;outline:0}.small{font-size:12px;color:var(--muted);line-height:1.6}
+.dashboard{display:none;margin-top:18px}.dashhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.dashhead h3{margin:0;font-size:25px}.welcome{color:var(--muted);margin:5px 0 0}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-top:17px}.stat{padding:16px;border:1px solid var(--line);border-radius:14px;background:#050a05}.stat span{color:var(--muted);font-size:12px}.stat b{display:block;color:var(--g);font-size:23px;margin-top:4px}.orders{margin-top:19px}.orderlist{display:grid;gap:10px}.order{padding:15px;border:1px solid #1d391a;border-radius:13px;background:#060b06;display:grid;grid-template-columns:1fr auto;gap:8px}.meta{color:var(--muted);font-size:12px;line-height:1.5;margin-top:5px}.status{border:1px solid #365b2e;border-radius:99px;padding:5px 9px;color:#baff8e;font-size:11px;font-weight:800}.empty{color:var(--muted);font-size:14px;padding:12px 0}.contact{text-align:center}.contact .panel{max-width:700px;margin:auto}footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);text-align:center;font-size:13px}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}.auth{grid-template-columns:1fr}}@media(max-width:520px){.links{display:none}.grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr}.otp{gap:5px}.otp input{font-size:20px;padding:12px 1px}.panel{padding:19px}}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap navin">
+<a class="brand" href="#"><img src="logo.png" alt="JERLOORXHCK"><span>JERLOORXHCK</span></a>
+<nav class="links"><a href="#services">Activities</a><a href="#account">Account</a><a href="#dashboard">Dashboard</a></nav>
+<a class="btn primary" href="https://wa.me/2347070783758" target="_blank" rel="noopener">WhatsApp</a>
+</div></header>
+
+<main>
+<section class="hero"><div class="wrap">
+<img src="logo.png" alt="JERLOORXHCK">
+<div class="badge">DIGITAL BUSINESS • CYBER • DEVELOPMENT</div>
+<h1>JERLOORXHCK</h1>
+<p>Professional digital services, cybersecurity support, website creation, app development and authorized technical services.</p>
+<div class="actions"><a class="btn primary" href="#account">Register / Login</a><a class="btn" href="https://wa.me/2347070783758" target="_blank" rel="noopener">Message on WhatsApp</a></div>
+</div></section>
+
+<section id="services"><div class="wrap">
+<h2 class="title">Activities & Services</h2><p class="sub">Choose an activity to request it. Services are for lawful and authorized purposes.</p>
+<div class="grid" id="servicesGrid"><div class="card"><span class="icon">◈</span><span class="num">LOADING</span><h3>Loading services...</h3><p>Please wait.</p></div></div>
+</div></section>
+
+<section id="account"><div class="wrap">
+<h2 class="title">Account</h2><p class="sub">Register, verify your email with a 6-digit code, then access your dashboard.</p>
+<div class="auth">
+<div class="panel">
+<div class="mode"><button class="btn active" id="registerMode">Register</button><button class="btn" id="loginMode">Login</button></div>
+<div id="nameFields">
+<div class="field"><label>First name</label><input id="firstName" autocomplete="given-name" placeholder="First name"></div>
+<div class="field"><label>Second name</label><input id="secondName" autocomplete="family-name" placeholder="Second name"></div>
+</div>
+<div class="field"><label>Email</label><input id="email" type="email" autocomplete="email" placeholder="you@example.com"></div>
+<div class="field"><label>Password</label><input id="password" type="password" autocomplete="new-password" placeholder="Minimum 6 characters"></div>
+<div class="actions" style="justify-content:flex-start"><button class="btn primary" id="signup">Create account</button><button class="btn" id="login" style="display:none">Login</button></div>
+
+<div class="otpwrap" id="otpWrap">
+<div style="font-size:14px;color:#c5d0c2;margin-bottom:10px">6-digit email verification code</div>
+<div class="otp" id="otpBox">
+<input inputmode="numeric" maxlength="1"><input inputmode="numeric" maxlength="1"><input inputmode="numeric" maxlength="1"><input inputmode="numeric" maxlength="1"><input inputmode="numeric" maxlength="1"><input inputmode="numeric" maxlength="1">
+</div>
+<p class="small">Check your email for the code, then enter all six digits.</p>
+<div class="actions" style="justify-content:flex-start"><button class="btn primary" id="verify">Verify email</button><button class="btn" id="resend">Resend code</button></div>
+</div>
+<div class="msg" id="authmsg"></div>
+</div>
+
+<div class="panel"><h3 style="margin-top:0">JERLOORXHCK Account</h3>
+<p style="color:var(--muted);line-height:1.75">Your account connects your profile and service orders to the JERLOORXHCK business database.</p>
+<p class="small">When email confirmation is enabled, Supabase sends a 6-digit verification code and this page verifies it.</p>
+<a class="btn" href="https://wa.me/2347070783758" target="_blank" rel="noopener">Need help? WhatsApp</a>
+</div>
+</div>
+
+<div class="dashboard panel" id="dashboard">
+<div class="dashhead"><div><h3>Dashboard</h3><p class="welcome" id="welcome">Welcome.</p></div><button class="btn" id="logout">Logout</button></div>
+<div class="stats"><div class="stat"><span>Account status</span><b id="status">Active</b></div><div class="stat"><span>Member since</span><b id="since">—</b></div><div class="stat"><span>Total orders</span><b id="orderCount">0</b></div></div>
+<div class="orders"><h4>My Activities / Orders</h4><div class="orderlist" id="orderList"><div class="empty">No orders yet. Choose an activity above.</div></div></div>
+</div>
+</div></section>
+
+<section id="contact" class="contact"><div class="wrap"><div class="panel">
+<h2 class="title">Contact JERLOORXHCK</h2><p class="sub">Tap the button to open WhatsApp and message directly.</p>
+<a class="btn primary" href="https://wa.me/2347070783758" target="_blank" rel="noopener">Message JERLOORXHCK WhatsApp</a>
+</div></div></section>
+</main>
+<footer>© <span id="year"></span> JERLOORXHCK. All rights reserved.</footer>
+
+<script>
+const SUPABASE_URL="https://dvjfyzfyhpsdvvzkduhd.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY="sb_publishable_5XDoi-etFh-LJBUoKPOV3w_kqKxkwAH";
+const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
+const $=id=>document.getElementById(id);
+const otp=[...document.querySelectorAll("#otpBox input")];
+let mode="register",pendingEmail="";
+
+function msg(t,error=false){$("authmsg").textContent=t;$("authmsg").className="msg show"+(error?" error":"")}
+function clearMsg(){$("authmsg").className="msg";$("authmsg").textContent=""}
+function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
+function setMode(m){mode=m;let r=m==="register";$("registerMode").classList.toggle("active",r);$("loginMode").classList.toggle("active",!r);$("nameFields").style.display=r?"block":"none";$("signup").style.display=r?"inline-block":"none";$("login").style.display=r?"none":"inline-block";$("otpWrap").style.display="none";clearMsg()}
+$("registerMode").onclick=()=>setMode("register");$("loginMode").onclick=()=>setMode("login");
+
+async function loadServices(){
+ const g=$("servicesGrid"),res=await sb.from("services").select("id,name,description,icon,price").eq("active",true).order("sort_order");
+ if(res.error){g.innerHTML='<div class="card"><span class="icon">⚠</span><h3>Services unavailable</h3><p>Check the Supabase database.</p></div>';return}
+ g.innerHTML="";
+ (res.data||[]).forEach((s,i)=>{let c=document.createElement("article");c.className="card";c.innerHTML='<span class="icon">'+esc(s.icon||"◈")+'</span><span class="num">'+String(i+1).padStart(2,"0")+'</span><h3>'+esc(s.name)+'</h3><p>'+esc(s.description)+'</p><button class="btn primary orderbtn">Request activity</button>';c.querySelector(".orderbtn").onclick=()=>createOrder(s);g.appendChild(c)})
+}
+async function createOrder(s){
+ const {data:{session}}=await sb.auth.getSession();
+ if(!session){$("account").scrollIntoView({behavior:"smooth"});setMode("login");msg("Please login first before requesting an activity.",true);return}
+ const r=await sb.from("orders").insert({user_id:session.user.id,service_id:s.id,service_name:s.name,amount:Number(s.price||0),status:"pending"}).select().single();
+ if(r.error){msg("Order could not be created: "+r.error.message,true);return}
+ msg("Activity requested. Order number: "+(r.data.order_number||"pending"));await loadOrders(session.user.id);$("dashboard").scrollIntoView({behavior:"smooth"})
+}
+async function loadOrders(uid){
+ const r=await sb.from("orders").select("order_number,service_name,amount,status,created_at").eq("user_id",uid).order("created_at",{ascending:false});
+ if(r.error){$("orderList").innerHTML='<div class="empty">Could not load orders.</div>';return}
+ $("orderCount").textContent=(r.data||[]).length;
+ if(!r.data?.length){$("orderList").innerHTML='<div class="empty">No orders yet. Choose an activity above.</div>';return}
+ $("orderList").innerHTML=r.data.map(o=>'<div class="order"><div><strong>'+esc(o.service_name)+'</strong><div class="meta">Order: '+esc(o.order_number||"—")+'<br>'+esc(new Date(o.created_at).toLocaleString())+' · ₦'+Number(o.amount||0).toLocaleString()+'</div></div><span class="status">'+esc(o.status)+'</span></div>').join("")
+}
+async function refresh(){
+ const {data:{session}}=await sb.auth.getSession();
+ if(!session){$("dashboard").style.display="none";return}
+ $("dashboard").style.display="block";
+ const p=await sb.from("profiles").select("first_name,second_name,display_name,email").eq("id",session.user.id).maybeSingle();
+ let name=p.data?.display_name||[p.data?.first_name,p.data?.second_name].filter(Boolean).join(" ")||session.user.email;
+ $("welcome").textContent="Welcome, "+name+" • "+session.user.email;
+ $("since").textContent=new Date(session.user.created_at).toLocaleDateString();
+ $("status").textContent=session.user.email_confirmed_at?"Verified":"Active";
+ await loadOrders(session.user.id)
+}
+
+$("signup").onclick=async()=>{
+ clearMsg();
+ let first=$("firstName").value.trim(),second=$("secondName").value.trim(),email=$("email").value.trim().toLowerCase(),pass=$("password").value;
+ if(!first||!second)return msg("Enter your first name and second name.",true);
+ if(!email)return msg("Enter your email.",true);
+ if(pass.length<6)return msg("Password must be at least 6 characters.",true);
+ $("signup").disabled=true;
+ let r=await sb.auth.signUp({email,password:pass,options:{data:{first_name:first,second_name:second,display_name:first+" "+second},emailRedirectTo:location.origin+location.pathname}});
+ $("signup").disabled=false;
+ if(r.error)return msg(r.error.message,true);
+ pendingEmail=email;
+ if(r.data.session){msg("Account created successfully.");await refresh();$("dashboard").scrollIntoView({behavior:"smooth"});return}
+ $("otpWrap").style.display="block";otp.forEach(x=>x.value="");otp[0].focus();msg("Account created. Check your email for the 6-digit verification code.")
+}
+$("verify").onclick=async()=>{
+ clearMsg();let email=pendingEmail||$("email").value.trim().toLowerCase(),token=otp.map(x=>x.value).join("");
+ if(!email)return msg("Enter your email first.",true);
+ if(!/^\d{6}$/.test(token))return msg("Enter all 6 digits.",true);
+ $("verify").disabled=true;let r=await sb.auth.verifyOtp({email,token,type:"signup"});$("verify").disabled=false;
+ if(r.error)return msg(r.error.message,true);
+ $("otpWrap").style.display="none";msg("Email verified successfully. Welcome to JERLOORXHCK.");await refresh();$("dashboard").scrollIntoView({behavior:"smooth"})
+}
+$("resend").onclick=async()=>{
+ clearMsg();let email=pendingEmail||$("email").value.trim().toLowerCase();if(!email)return msg("Enter your email first.",true);
+ $("resend").disabled=true;let r=await sb.auth.resend({type:"signup",email});$("resend").disabled=false;
+ if(r.error)return msg(r.error.message,true);otp.forEach(x=>x.value="");otp[0].focus();msg("A new 6-digit verification code has been requested.")
+}
+$("login").onclick=async()=>{
+ clearMsg();let email=$("email").value.trim().toLowerCase(),pass=$("password").value;
+ if(!email||!pass)return msg("Enter your email and password.",true);
+ $("login").disabled=true;let r=await sb.auth.signInWithPassword({email,password:pass});$("login").disabled=false;
+ if(r.error)return msg(r.error.message,true);msg("Login successful.");await refresh();$("dashboard").scrollIntoView({behavior:"smooth"})
+}
+$("logout").onclick=async()=>{await sb.auth.signOut();$("dashboard").style.display="none";msg("You have been logged out.")}
+otp.forEach((x,i)=>{x.oninput=()=>{x.value=x.value.replace(/\D/g,"").slice(0,1);if(x.value&&i<5)otp[i+1].focus()};x.onkeydown=e=>{if(e.key==="Backspace"&&!x.value&&i)otp[i-1].focus()};x.onpaste=e=>{e.preventDefault();let v=e.clipboardData.getData("text").replace(/\D/g,"").slice(0,6);v.split("").forEach((d,j)=>otp[j].value=d);otp[Math.min(v.length,6)-1]?.focus()}})
+sb.auth.onAuthStateChange(()=>setTimeout(refresh,0));
+$("year").textContent=new Date().getFullYear();loadServices();refresh();
+</script>
+</body>
+</html>
